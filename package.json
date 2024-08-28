@@ -7,15 +7,17 @@
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
-    "package2": "electron-forge package --arch x64 --platform win32",
+    "package-win32": "electron-forge package --arch x64 --platform win32",
     "make": "electron-forge make",
-    "make2": "electron-forge make --arch x64 --platform win32",
+    "make-win32": "electron-forge make --arch x64 --platform win32",
     "publish": "electron-forge publish",
     "start2": "electron .",
-    "package-win": "electron-packager . HelloWorld --platform=win32 --electron-version=10.0.0 --arch=x64 --download.mirrorOptions.mirror=https://registry.npmjs.org/mirrors/electron/ --asar --app-version=0.0.0 --build-version=0.0.0 --out=HelloWorld --overwrite --no-package-manager --ignore='(.git)' --icon=icon/logo.ico",
-    "package-linux": "electron-packager . HelloWorld --platform=linux --electron-version=10.0.0 -no-sandbox --arch=x64 --download.mirrorOptions.mirror=https://registry.npmjs.org/mirrors/electron/ --asar --app-version=0.0.0 --build-version=0.0.0 --out=HelloWorld --overwrite --no-package-manager --ignore='(.git)' --icon=icon/logo.png",
-    "package-mac": "electron-packager . HelloWorld --platform=darwin --electron-version=10.0.0 --arch=x64 --download.mirrorOptions.mirror=https://registry.npmjs.org/mirrors/electron/ --asar --app-version=0.0.0 --build-version=0.0.0 --out=HelloWorld --overwrite --no-package-manager --ignore='(.git)' --icon=icon/logo.ico",
-    "lint": "echo \"No linting configured\""
+    "package-win": "electron-packager . aiask --platform=win32 --arch=x64  --asar  --out=build --overwrite --no-package-manager --ignore='(.git)' --icon=assets/icons/laihua/logo --version-string.ProductName='奇妙问'",
+    "package-linux": "electron-packager . aiask --platform=linux --arch=x64  --asar  --out=build --overwrite --no-package-manager --ignore='(.git)' --icon=assets/icons/laihua/logo -no-sandbox",
+    "package-mac": "electron-packager . aiask --platform=darwin --arch=x64  --asar  --out=build --overwrite --no-package-manager --ignore='(.git)' --icon=assets/icons/laihua/logo",
+    "create-installer-mac": "electron-installer-dmg ./build/aiask-darwin-x64/aiask.app aiask --out=./build/dmg",
+    "package-appdmg": "appdmg appdmg.json build/aiask.dmg",
+    "builder-win": "electron-builder --win --x64"
   },
   "devDependencies": {
     "@electron-forge/cli": "^7.4.0",
@@ -28,6 +30,8 @@
     "@electron-forge/publisher-github": "^7.4.0",
     "@electron/fuses": "^1.8.0",
     "electron": "32.0.1",
+    "electron-builder": "^24.13.3",
+    "electron-installer-dmg": "^4.0.0",
     "electron-packager": "^17.1.2"
   },
   "keywords": [],
