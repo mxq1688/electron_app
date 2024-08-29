@@ -4,57 +4,23 @@ const { FuseV1Options, FuseVersion } = require('@electron/fuses');
 module.exports = {
   packagerConfig: {
     asar: true, //是否使用asar打包格式
-    icon: '/icon/logo',
-    // 基础配置（一般这些就够用了）
-    // "name": "MyElectronApp", // 应用程序的名称
-    // "productName": "My Electron App", // 产品名称（用于生成安装包的名称）
-    // "ignore": [ // 不需要打包的文件和文件夹的路径列表
-    //   ".git",
-    //   ".vscode",
-    //   "node_modules/.cache",
-    //   "src"
-    // ],
-    //   // 配置其他构建器（特殊情况下使用）
-    // "win": { // Windows平台的配置
-    //   "target": "nsis", // 打包的目标格式为NSIS安装程序
-    //   "icon": "path/to/windows/icon.ico", // Windows平台的图标路径
-    //   "publisherName": "My Company", // 发布者名称
-    //   "fileAssociations": [ // 关联文件类型的配置
-    //     {
-    //       "ext": "myext", // 文件扩展名
-    //       "name": "My Extension", // 文件类型名称
-    //       "description": "Open My Extension files", // 文件类型描述
-    //       "role": "Editor" // 文件类型的角色
-    //     }
-    //   ],
-    //   "certificateFile": "path/to/certificate.pfx", // 数字证书文件的路径
-    //   "certificatePassword": "password123" // 数字证书的密码
-    // },
-    // "mac": { // macOS平台的配置
-    //   "target": "dmg", // 打包的目标格式为DMG镜像
-    //   "icon": "path/to/mac/icon.icns", // macOS平台的图标路径
-    //   "category": "public.app-category.utilities", // 应用程序的分类
-    //   "extendInfo": { // 扩展应用程序包的配置
-    //     "NSAppTransportSecurity": {
-    //       "NSAllowsArbitraryLoads": true // 允许应用程序加载任意的网络资源
-    //     }
-    //   }
-    // },
+    // 设置应用程序图标 名称
+    name: "aiask",
+    icon: 'assets/icons/laihua/logo',
   },
   rebuildConfig: {},
   makers: [
     {
       name: '@electron-forge/maker-squirrel',
+      // 配置安装程序图标
       config: {
-        iconUrl: './icon/logo.ico'
-      },
+        iconUrl: 'assets/icons/laihua/logo.ico',
+        setupIcon: 'assets/icons/laihua/logo.ico'
+      }
     },
     {
       name: '@electron-forge/maker-zip',
       platforms: ['darwin'],
-      config: {
-        icon: './icon/logo.icns'
-      }
     },
     // {
     //   name: '@electron-forge/maker-dmg',
@@ -64,7 +30,12 @@ module.exports = {
     // },
     {
       name: '@electron-forge/maker-deb',
-      config: {},
+      config: {
+        options: {
+          // 设置应用程序图标 名称
+          icon: 'assets/icons/laihua/logo.png'
+        }
+      }
     },
     {
       name: '@electron-forge/maker-rpm',
