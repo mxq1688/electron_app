@@ -3,6 +3,7 @@ const { FuseV1Options, FuseVersion } = require('@electron/fuses');
 
 module.exports = {
   packagerConfig: {
+    out: 'out',
     asar: true, //是否使用asar打包格式
     // 设置应用程序图标 名称
     name: "aiask",
