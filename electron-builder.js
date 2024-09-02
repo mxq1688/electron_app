@@ -13,7 +13,7 @@ module.exports = {
     "!data/"
   ],
   // extraResources: {
-  //   from: "build/extraResources/",
+  //   from: "assets/build/extraResources/",
   //   to: "extraResources"
   // },
   win: {
@@ -52,7 +52,7 @@ module.exports = {
     createDesktopShortcut: true, // 创建桌面快捷方式
     createStartMenuShortcut: true, // 创建开始菜单快捷方式
     shortcutName: '${productName}', // 快捷方式名称
-    // include: 'build/installer.nsh',// NSIS的路径包括自定义安装程序的脚本。默认为build/installer.nsh
+    // include: 'assets/build/installer.nsh',// NSIS的路径包括自定义安装程序的脚本。默认为build/installer.nsh
     deleteAppDataOnUninstall: true,// 卸载时删除用户数据
   },
 

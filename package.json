@@ -3,7 +3,7 @@
   "productName": "electron_app",
   "version": "1.0.0",
   "description": "My Electron application description",
-  "main": "src/index.js",
+  "main": "aiask/main.js",
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
@@ -20,9 +20,6 @@
     "packager-mac": "electron-packager . aiask --platform=darwin --arch=x64  --asar  --out=packager --overwrite --no-package-manager --ignore='(.git)' --icon=assets/icons/laihua/logo",
     "create-installer-mac": "electron-installer-dmg ./packager/aiask-darwin-x64/aiask.app aiask --out=./packager/dmg",
     "packager-appdmg": "appdmg appdmg.json packager/aiask.dmg",
-
-    "builder-mac": "electron-builder --mac --x64 --config=./electron-builder.js",
-    "builder-win": "electron-builder --win --x64 --config=./electron-builder.js",
 
     "build-w": "electron-builder --config=./electron-builder.js -w=nsis --x64",
     "build-w-32": "electron-builder --config=./electron-builder.js -w=nsis --ia32",
@@ -41,7 +38,7 @@
     "build-l-arm64": "electron-builder --config=./electron-builder.js -l=deb --arm64",
     "build-l-armv7l": "electron-builder --config=./electron-builder.js -l=deb --armv7l",
     "build-lr-64": "electron-builder --config=./electron-builder.js -l=rpm --x64",
-    "build-lp-64": "electron-builder --config=./electron-builder.js -l=pacman --x64",
+    "build-lp-64": "electron-builder --config=./electron-builder.js -l=pacman --x64"
   },
   "devDependencies": {
     "@electron-forge/cli": "^7.4.0",

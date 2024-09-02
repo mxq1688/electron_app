@@ -1,34 +1,45 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('node:path');
 
-// Handle creating/removing shortcuts on Windows when installing/uninstalling.
+// 处理安装/卸载时在Windows上创建/删除快捷方式
 if (require('electron-squirrel-startup')) {
   app.quit();
 }
 
 const createWindow = () => {
-  // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
-    webPreferences: {
+    webPreferences: {//这是一个对象，其中包含了控制窗口内部网页渲染过程的各种选项
       preload: path.join(__dirname, 'preload.js'),
     },
   });
-
   // 加载 index.html
   // mainWindow.loadFile(path.join(__dirname, 'index.html'));
 
-  mainWindow.loadURL('https://aiask365.com/')
+  // mainWindow.loadURL('https://aiask365.com')
+  mainWindow.loadURL('https://aiask365.com/#/h5/list')
 
   // 打开开发工具
-  mainWindow.webContents.openDevTools();
+  // mainWindow.webContents.openDevTools();
 };
+
+
+// 在主进程中，使用 ipcMain.on API 在 set-title 通道上设置一个 IPC 侦听器
+function handleSetTitle (event, title) {
+  const webContents = event.sender
+  const win = BrowserWindow.fromWebContents(webContents)
+  win.setTitle(title)
+}
+
 
 // 这段程序将会在 Electron 结束初始化
 // 和创建浏览器窗口的时候调用
 // 部分 API 在 ready 事件触发后才能使用。
 app.whenReady().then(() => {
+
+  ipcMain.on('set-title', handleSetTitle)
+  
   createWindow();
 
   // 在 macOS 系统内, 如果没有已开启的应用窗口
