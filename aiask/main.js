@@ -21,8 +21,8 @@ const createWindow = () => {
   });
 
   // mainWindow.setFullScreen(true);
-  // mainWindow.loadFile(path.join(__dirname, 'index.html'));
-  mainWindow.loadURL('https://aiask365.com/#/h5/list')
+  mainWindow.loadFile(path.join(__dirname, 'index.html'));
+  // mainWindow.loadURL('https://aiask365.com/#/h5/list')
   // mainWindow.webContents.openDevTools();
 
 }
