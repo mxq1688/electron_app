@@ -13,12 +13,14 @@
     "make-mac": "electron-forge make --arch x64 --platform darwin",
     "make-win": "electron-forge make --arch x64 --platform win32",
     "forge-publish": "electron-forge publish",
+
     "start2": "electron .",
     "packager-win": "electron-packager . aiask --platform=win32 --arch=x64  --asar  --out=packager --overwrite --no-package-manager --ignore='(.git)' --icon=assets/icons/laihua/logo --version-string.ProductName='奇妙问'",
     "packager-linux": "electron-packager . aiask --platform=linux --arch=x64  --asar  --out=packager --overwrite --no-package-manager --ignore='(.git)' --icon=assets/icons/laihua/logo -no-sandbox",
     "packager-mac": "electron-packager . aiask --platform=darwin --arch=x64  --asar  --out=packager --overwrite --no-package-manager --ignore='(.git)' --icon=assets/icons/laihua/logo",
     "create-installer-mac": "electron-installer-dmg ./packager/aiask-darwin-x64/aiask.app aiask --out=./packager/dmg",
     "packager-appdmg": "appdmg appdmg.json packager/aiask.dmg",
+    
     "build-w": "electron-builder --config=./electron-builder.js -w=nsis --x64 --publish always",
     "build-w-32": "electron-builder --config=./electron-builder.js -w=nsis --ia32",
     "build-w-64": "electron-builder --config=./electron-builder.js -w=nsis --x64",
