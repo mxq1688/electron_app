@@ -1,6 +1,6 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('node:path');
-import listenAutoUpdate from './listenAutoUpdate';
+// const listenAutoUpdate = require('./listenAutoUpdate')
 
 // 处理安装/卸载时在Windows上创建/删除快捷方式
 if (require('electron-squirrel-startup')) {
@@ -24,7 +24,7 @@ const createWindow = () => {
   // 打开开发工具
   // mainWindow.webContents.openDevTools();
 
-  listenAutoUpdate(mainWindow)
+  // listenAutoUpdate(mainWindow)
 
 };
 
